@@ -1,47 +1,41 @@
-function enviarParaApi() {
-    const name = document.getElementById('nomeCadastro').value;
-    const passenhasword = document.getElementById('senhaCadastro').value;
-    const email = document.getElementById('emailCadastro').value;
+$(document).ready(function() {
+    $('#cadastro').submit(function(event) {
+        event.preventDefault();
 
+        const name = $('#nomeCadastro').val();
+        const password = $('#senhaCadastro').val();
+        const email = $('#emailCadastro').val();
 
-    // Verifica se os campos não estão vazios
-    if (nomeElement && senhaElement && emailElement) {
-        const name = nomeElement.value;
-        const senha = senhaElement.value;
-        const email = emailElement.value;
+        if (!name || !password || !email) {
+            alert('Por favor, preencha todos os campos antes de enviar.');
+            return;
+        }
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('password', senha);
-    formData.append('email', email);
+        const data = {
+            "name": name,
+            "password": password,
+            "email": email
+        };
 
-    const headers = new Headers();
-    headers.append('Content-Type', 'multipart/form-data');
+        console.log(data);
 
-    fetch('http://localhost:3000/users', {
-        method: 'POST',
-        body: formData,
-        headers: headers
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro na requisição. Código do status: ' + response.status);
+        $.ajax({
+            url: 'http://localhost:3000/users',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function(response) {
+                console.log(response);
+                // Adicione o código de manipulação de sucesso aqui
+            },
+            error: function(error) {
+                console.error('Erro ao enviar para a API:', error);
+                // Adicione o código de manipulação de erro aqui
             }
-            return response.json();
-        })
-        .then(data => {
-            alert('Resposta da API: ' + JSON.stringify(data));
-            console.log('Resposta da API:', data);
-        })
-        .catch(error => {
-            alert('Erro ao enviar para a API: ' + error.message);
-            console.error('Erro ao enviar para a API:', error);
         });
-    } else {
-        console.error('Um ou mais elementos não foram encontrados.');
-        alert('Um ou mais elementos não foram encontrados.');
-    }
-}
+    });
+});
+
 
 
 

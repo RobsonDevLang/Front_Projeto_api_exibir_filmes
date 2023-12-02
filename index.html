@@ -69,11 +69,11 @@
       <p>nome:</p>
       <input id="nomeCadastro" name="nome" type="text" placeholder="nome" required>
       <p>senha:</p>
-      <input name="senhaCadastro" type="password" placeholder="senha" required>
+      <input id="senhaCadastro" type="password" placeholder="senha" required>
       <p>e-mail:</p>
-      <input name="emailCadastro" type="email" placeholder="E-mail" required><BR><BR>
+      <input id="emailCadastro" type="email" placeholder="E-mail" required><BR><BR>
       <br><br>
-      <button type="submit" id="btnEnviar" onclick="enviarParaApi()">enviar</button><br>
+      <button type="submit" id="btnEnviar">enviar</button><br>
     </form>
     <br>
     <button id="logar">logar-se</button>
@@ -81,7 +81,7 @@
 
   <div id="res" name="res">ola mundo</div>
 
-  <script>
+  <!-- <script>
   const btnEnviar = document.getElementById("btnEnviar");
 
     if (btnEnviar) {
@@ -89,7 +89,7 @@
           event.preventDefault();
        });
     }
-    </script>
+    </script> -->
 <script src="script.js"></script>
 </body>
 
