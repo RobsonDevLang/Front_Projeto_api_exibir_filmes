@@ -1,0 +1,28 @@
+#areaCadastro{
+    display: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link:hover{
+    background-color: black !important;
+    color:white !important;
+    transform: scale(1.2)!important;
+    transition: 400ms linear !important; 
+}
+
+.navbar-brand:hover{
+    background-color: black !important;
+    color:white !important;
+    transform: scale(1.2)!important;
+    transition: 400ms linear !important; 
+}
+
+:disabled{
+    cursor: not-allowed;
+}
