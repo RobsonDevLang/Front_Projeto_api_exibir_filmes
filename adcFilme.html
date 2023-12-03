@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
 <html lang="pt">
 
 <head>
@@ -51,43 +60,24 @@
       </div>
     </div>
   </nav>
-  <div id="areaLogin">
+  <div id="areaCadastroFilme">
     <hr>
-    <h2>Login</h2>
+    <h2>Cadastrar Filmes</h2>
     <hr>
-    <form id="login">
+    <form id="cadastroFilme">
       <p>nome:</p>
-      <input id="nomeLogin" type="text" placeholder="nome">
-      <p>senha:</p>
-      <input id="senhaLogin" type="password" placeholder="senha"><br><br>
-      <button type="submit" id="btnLogin">enviar</button><br>
-    </form>
-    <br>
-    <button id="cadastrar">cadastrar-se</button><br><br>
-    <button onclick="lsJson()">Json Puro</button>
-  </div>
-
-  <div id="areaCadastro">
-    <hr>
-    <h2>Cadastrar-se</h2>
-    <hr>
-    <form id="cadastro">
-      <p>nome:</p>
-      <input id="nomeCadastro" name="nome" type="text" placeholder="nome" required>
-      <p>senha:</p>
-      <input id="senhaCadastro" type="password" placeholder="senha" required>
-      <p>e-mail:</p>
-      <input id="emailCadastro" type="email" placeholder="E-mail" required><BR><BR>
+      <input id="nomeFilme" name="nome" type="text" placeholder="Nome do filme" required>
+      <p>descrição do filme:</p>
+      <textarea name="descripition" id="descricaoFilme" cols="30" rows="10"></textarea>
+      <p>url da capa do filme:</p>
+      <input id="urlFilme" type="text" placeholder="http://www.minhaslogos.com" required><BR><BR>
       <br><br>
-      <button type="submit" id="btnEnviar">enviar</button><br>
+      <button type="submit" id="btnEnviarFilme">enviar</button><br>
     </form>
     <br>
   </div>
   <button id="logar">logar-se</button>
   <div id="res" name="res">ola mundo</div>
-
-
-
+    
 </body>
-
 </html>

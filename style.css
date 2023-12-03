@@ -26,3 +26,10 @@ body {
 :disabled{
     cursor: not-allowed;
 }
+
+div a,td a{
+    cursor: pointer;
+    text-decoration: none !important;
+    color: white;
+}
+
