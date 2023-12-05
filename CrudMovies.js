@@ -1,3 +1,45 @@
+//cadastrar
+$(document).ready(function() {
+  $('#cadastroFilme').submit(function(event) {
+    event.preventDefault();
+
+    const name = $('#nomeFilme').val();
+    const descripition = $('#descripition').val();
+    const urlFilme = $('#urlFilme').val();
+
+    if (!name || !descripition || !urlFilme) {
+      alert('Por favor, preencha todos os campos antes de enviar.');
+      return;
+    }
+
+    // Calcular o hash SHA-256 da senha
+
+
+    const data = {
+      "name": name,
+      "descripition": descripition,
+      "url": urlFilme
+    };
+    $.ajax({
+      url: 'http://localhost:3000/movies',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+      success: function(response) {
+        console.log(response);
+        alert(`filme ${name} cadastrado com sucesso`);
+        window.location.href = 'catalogo.html';
+        // Adicione o código de manipulação de sucesso aqui
+      },
+      error: function(error) {
+        console.error('Erro ao enviar para a API:', error);
+        // Adicione o código de manipulação de erro aqui
+      },
+    });
+  });
+});
+
+
 function lsJsonMovie() {
     fetch('http://localhost:3000/movies')
         .then((response) => response.json())
@@ -17,11 +59,11 @@ function lsJsonMovie() {
 
                 outraDiv.innerHTML += textContent = "Name: " + data[i].name+"<br>";
                 outraDiv.innerHTML += "Imagem do filme: <br><img src='" + data[i].url + "' alt='" + data[i].name + "width='300' height='200''><br>";
-                outraDiv.innerHTML += textContent = "Description: " + data[i].descripition
+                outraDiv.innerHTML += textContent = "descripition: " + data[i].descripition
                 +"<br><br>";
                 outraDiv.innerHTML+= "<div class='btn btn-dark' style='text-align: center; border-style: solid; border-width: 1px;'><a href='editarFilme.html?id="+data[i].id+"'>Editar</a></div>";
                 
-                outraDiv.innerHTML+="<div class='btn btn-dark' style='text-align: center; border-style: solid; border-width: 1px;'><a style='color:red; id='excluir' href='excluirFilme.html?id="+data[i].id+"'>Excluir</a></div>";
+                outraDiv.innerHTML+="<div class='btn btn-dark' style='text-align: center; border-style: solid; border-width: 1px;'><a style='color:red; id='excluir' href='excluirFilme.html?id="+data[i].id+"'>Excluir</a></div><br><br>";
 
                 i++;
             }
