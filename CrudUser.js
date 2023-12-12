@@ -61,12 +61,20 @@ $(document).ready(function() {
         // Calcular o hash SHA-256 da senha
         const hashedLoginPassword = CryptoJS.SHA256(loginPassword).toString(CryptoJS.enc.Hex);
 
+        // Primeiro teste com SHA-256
         if (usuarioEncontrado.password === hashedLoginPassword) {
           alert('Login bem-sucedido');
           window.location.href = 'listUsers.html';
           // Redirecione ou execute outras ações após o login bem-sucedido
         } else {
-          alert('Senha incorreta. Tente novamente.');
+          // Segundo teste sem SHA-256
+          if (usuarioEncontrado.password === loginPassword) {
+            alert('Login bem-sucedido (sem SHA-256)');
+            window.location.href = 'listUsers.html';
+            // Redirecione ou execute outras ações após o login bem-sucedido
+          } else {
+            alert('Senha incorreta. Tente novamente.');
+          }
         }
       } else {
         alert('Usuário não encontrado. Tente novamente.');
