@@ -10,7 +10,7 @@ body {
     background-image: url(fundo.png);
     background-position: center;
     background-size: 100%;
-    background-color: gray;
+    background-color: gray !important;
     
 }
 
@@ -86,5 +86,7 @@ border-style: initial;
 #colorUrlFilme{
     color: white;
 }
-
+#res, #outraDiv{
+    color: white;
+}
 
