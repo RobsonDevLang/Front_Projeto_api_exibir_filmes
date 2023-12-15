@@ -53,9 +53,9 @@ function lsJsonMovie() {
             // Usar um loop while para percorrer todos os itens do array
             var i = 0;
             while (i < data.length) {
-                var novoItem = document.createElement('p');
-                novoItem.textContent = JSON.stringify(data[i]);
-                res.appendChild(novoItem);
+             // var novoItem = document.createElement('p');
+                // novoItem.textContent = JSON.stringify(data[i]);
+                // res.appendChild(novoItem);
 
                 outraDiv.innerHTML += textContent = "Name: " + data[i].name+"<br>";
                 outraDiv.innerHTML += "Imagem do filme: <br><img src='" + data[i].url + "' alt='" + data[i].name + "width='300' height='200''><br>";
